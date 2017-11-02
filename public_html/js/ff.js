@@ -5,6 +5,19 @@ var $grid = $('.grid').isotope({
 itemSelector: '.element-item', 
 layoutMode: 'packery' 
 }); 
+
+
+// filter functions 
+var filterFns = { 
+
+// show if name ends with -ium 
+n: function() { 
+var name = $(this).find('.name').text(); 
+return name; 
+} 
+}; 
+
+
 // filter button click 
 $('.filters-button-group').on( 'click', 'button', function() { 
 var filterValue = $( this ).attr('data-filter'); 
