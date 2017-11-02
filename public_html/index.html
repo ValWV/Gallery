@@ -9,9 +9,139 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     </script>
     <style>
-      .mycard {
+ 
+    body {
+  font-family: sans-serif;
+}
+
+/* ---- button ---- */
+
+.button {
+  display: inline-block;
+  padding: 10px 18px;
+  margin-bottom: 10px;
+  background: #e0dfdf;;
+  border: none;
+  border-radius: 7px;
+  background-image: linear-gradient( to bottom, hsla(0, 0%, 0%, 0), hsla(0, 0%, 38%, 0.2) );
+  color: #222;
+  font-family: sans-serif;
+  text-shadow: 0 1px white;
+  cursor: pointer;
+  text-transform: unset;
+}
+
+.button:hover {
+  background-color: #8CF;
+  text-shadow: 0 1px hsla(0, 0%, 100%, 0.5);
+  color: #222;
+}
+
+.button:active,
+.button.is-checked {
+  background-color: #28F;
+}
+
+.button.is-checked {
+  color: white;
+  text-shadow: 0 -1px hsla(0, 0%, 0%, 0.8);
+}
+
+.button:active {
+  box-shadow: inset 0 1px 10px hsla(0, 0%, 0%, 0.8);
+}
+
+/* ---- button-group ---- */
+
+.button-group:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.button-group .button {
+  float: left;
+  border-radius: 0;
+  margin-left: 0;
+  margin-right: 1px;
+}
+
+.button-group .button:first-child { border-radius: 0.0em 0 0 0.0em; }
+.button-group .button:last-child { border-radius: 0 0.0em 0.0em 0; }
+
+
+/* ---- isotope ---- */
+
+.grid {
+  border: none;
+}
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .element-item ---- */
+
+.element-item {
+  position: relative;
+  float: left;
+  width: 282px;
+  height: 300px;
+  margin: 5px;
+  background: rgba(234, 234, 234, 0.73);
+}
+
+.element-item > * {
+  margin: 0;
+  padding: 0;
+}
+
+.element-item .name {
+    position: absolute;
+    left: 10px;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: bold;
+    bottom: 3px;
+}
+
+.height1 { 
+  height: 200px; 
+  
+}
+.height2 
+{ 
+  height: 380px;
+  
+}
+
+.background-image-holder img {
+    display: none;
+}
+
+.background-image-holder {
+    height: 85%;
+    top: 0;
+    left: 0;
+    background-size: cover !important;
+    background-position: 50% 50% !important;
+    z-index: 0;
+    transition: opacity .3s linear;
+    -webkit-transition: opacity .3s linear;
+    opacity: 0;
+}
+
+.mycard {
    -webkit-mask-image: url(https://images.unsplash.com/photo-1461727885569-b2ddec0c4328?dpr=1&auto=format&fit=crop&w=1500&h=1002&q=80&cs=tinysrgb&crop=);
-  background-color: rgba(232, 232, 232, 0.79);
+}
+
+.hoveff:hover{
+    opacity:0.6;
+    z-index:2;
+    image: rgba(158, 139, 139, 0.51);
     
 }
 
@@ -37,108 +167,119 @@
   opacity: 0.5;
   transition: opacity 1000ms ease;
   -webkit-backface-visibility: hidden;
-}
-    </style>
+  z-index:3;
+}  
+   
+   </style>
   </head>
   <body>
+    
     <div class="container">
-      <div class="button-group filters-button-group">
-        <button class="button is-checked" data-filter="*">Все
-        </button>
-        <button class="button" data-filter=".wpap">Стиль WPAP
-        </button>
-        <button class="button" data-filter=".monroe">Стиль Монро
-        </button>
-        <button class="button" data-filter=".che">Стиль Че
-        </button>
-      </div>
-      <div class="grid">
-        <div class="element-item height2 monroe" data-category="monroe" style="position: absolute;left: 0px;top: 0px;">
-          <a href="https://muse.ooo/upload/medialibrary/a82/vektornyy_portret_pary_min.jpg" data-lightbox="roadtrip" data-title="Векторный портрет">
-            <div class="name">Векторный портрет
+<h3>Isotope - filtering</h3>
+
+<div class="button-group filters-button-group">
+  <button class="button is-checked" data-filter="*">Все</button>
+  <button class="button" data-filter=".wpap">Стиль WPAP</button>
+  <button class="button" data-filter=".monroe">Стиль Монро</button>
+  <button class="button" data-filter=".che">Стиль Че</button>
+</div>
+
+<div class="grid">
+
+  <div class="element-item height2 monroe mycard overlay hoveff" data-category="monroe" style="position: absolute;left: 0px;top: 0px;">
+    <a href="https://muse.ooo/upload/medialibrary/a82/vektornyy_portret_pary_min.jpg" data-lightbox="roadtrip" data-title="Векторный портрет">
+        <div class="name">Векторный портрет</div>
+            <div class="background-image-holder lazyload" data-src="https://muse.ooo/upload/medialibrary/a82/vektornyy_portret_pary_min.jpg" style="background-image: url(https://muse.ooo/upload/medialibrary/a82/vektornyy_portret_pary_min.jpg);opacity: 1;">
             </div>
-            <div class="background-image-holder lazyload" style="background: url(&quot;https://muse.ooo/upload/medialibrary/a82/vektornyy_portret_pary_min.jpg&quot;); opacity: 1;"> 
-              <img alt="image" src="https://muse.ooo/upload/medialibrary/a82/vektornyy_portret_pary_min.jpg"> 
-            </div>
-          </a>
-        </div>
-        <div class="element-item wpap mycard overlay red" data-category="wpap" style="position: absolute; left: 292px; top: 0px;">
-          <a href="https://muse.ooo/upload/medialibrary/45b/wpap_dark_min.jpg" data-lightbox="roadtrip" data-title="Портрет в стиле WPAP">
-            <div class="name">Портрет в стиле WPAP
-            </div>
-            <div class="background-image-holder lazyload" data-src="https://muse.ooo/upload/medialibrary/45b/wpap_dark_min.jpg" style="background-image: url(https://muse.ooo/upload/medialibrary/45b/wpap_dark_min.jpg);opacity: 1;">
-            </div>
-          </a>
-        </div>
-        <div class="element-item monroe" data-category="monroe" style="position: absolute; left: 584px; top: 0px;">
-          <a href="https://muse.ooo/upload/medialibrary/f12/devushka_v_stile_monro_min.jpg" data-lightbox="roadtrip" data-title="Поп-арт портрет в стиле Монро">
-            <div class="name">Поп-арт портрет в стиле Монро
-            </div>
-            <div class="background-image-holder" style="background: url(&quot;https://muse.ooo/upload/medialibrary/f12/devushka_v_stile_monro_min.jpg&quot;); opacity: 1;"> 
-              <img alt="image" src="https://muse.ooo/upload/medialibrary/f12/devushka_v_stile_monro_min.jpg"> 
-            </div>
-          </a>
-        </div>
-        <div class="element-item che" data-category="che" style="position: absolute; left: 876px; top: 0px;">
-          <a href="https://muse.ooo/upload/medialibrary/c4f/pop_art-v-stile-che.jpg" data-lightbox="roadtrip" data-title="Поп-арт портрет в стиле Че">
-            <div class="name">Поп-арт портрет в стиле Че
-            </div>
-            <div class="background-image-holder" style="background: url(&quot;https://muse.ooo/upload/medialibrary/c4f/pop_art-v-stile-che.jpg&quot;); opacity: 1;"> 
-              <img alt="image" src="https://muse.ooo/upload/medialibrary/c4f/pop_art-v-stile-che.jpg"> 
-            </div>
-          </a>
-        </div>
-        <div class="element-item height2 monroe" data-category="monroe" style="position: absolute; left: 292px; top: 310px;">
-          <a href="https://muse.ooo/upload/medialibrary/638/xpop_art_portret_devushki_min.jpg.pagespeed.ic.1PVZ5mJkZw.webp" data-lightbox="roadtrip" data-title="Поп-арт портрет в стиле Че">
-            <div class="name">Поп-арт портрет в стиле Че
-            </div>
-            <div class="background-image-holder" style="background: url(&quot;https://muse.ooo/upload/medialibrary/638/xpop_art_portret_devushki_min.jpg.pagespeed.ic.1PVZ5mJkZw.webp&quot;); opacity: 1;"> 
-              <img alt="image" src="https://muse.ooo/upload/medialibrary/638/xpop_art_portret_devushki_min.jpg.pagespeed.ic.1PVZ5mJkZw.webp"> 
-            </div>
-          </a>
-        </div>
-        <div class="element-item monroe" data-category="monroe" style="position: absolute; left: 584px; top: 310px;">
-          <a href="https://muse.ooo/upload/medialibrary/2a6/xdevushka_chetyre_v_kvadrate_che_min.jpg.pagespeed.ic.FXQJHpynjv.webp" data-lightbox="roadtrip" data-title="Поп-арт портрет в стиле Монро">
-            <div class="name">Поп-арт портрет в стиле Монро
-            </div>
-            <div class="background-image-holder" style="background: url(&quot;https://muse.ooo/upload/medialibrary/2a6/xdevushka_chetyre_v_kvadrate_che_min.jpg.pagespeed.ic.FXQJHpynjv.webp&quot;); opacity: 1;"> 
-              <img alt="image" src="https://muse.ooo/upload/medialibrary/2a6/xdevushka_chetyre_v_kvadrate_che_min.jpg.pagespeed.ic.FXQJHpynjv.webp"> 
-            </div>
-            </div>
-          <div class="element-item monroe" data-category="monroe" style="position: absolute; left: 876px; top: 310px;">
-            <a href="https://muse.ooo/upload/medialibrary/28f/popart_uorkhol.jpg" data-lightbox="roadtrip" data-title="Поп-арт портрет в стиле Монро">
-              <div class="name">Поп-арт портрет в стиле Монро
-              </div>
-              <div class="background-image-holder" style="background: url(&quot;https://muse.ooo/upload/medialibrary/28f/popart_uorkhol.jpg&quot;); opacity: 1;"> 
-                <img alt="image" src="https://muse.ooo/upload/medialibrary/28f/popart_uorkhol.jpg"> 
-              </div>
-            </a>
-          </div>
-          <div class="element-item monroe" data-category="monroe" style="position: absolute; left: 0px; top: 390px;">
-            <a href="https://muse.ooo/upload/medialibrary/cca/4_pop_art.jpg" data-lightbox="roadtrip" data-title=">Поп-арт портрет в стиле Монро">
-              <div class="name">Поп-арт портрет в стиле Монро
-              </div>
-              <div class="background-image-holder" style="background: url(&quot;https://muse.ooo/upload/medialibrary/cca/4_pop_art.jpg&quot;); opacity: 1;"> 
-                <img alt="image" src="https://muse.ooo/upload/medialibrary/cca/4_pop_art.jpg"> 
-              </div>
-            </a>
-          </div>
-          <div class="element-item width2 monroe" data-category="monroe" style="position: absolute; left: 584px; top: 620px;">
-            <a href="https://muse.ooo/upload/medialibrary/3fb/dvoynoy_portret_devushki_min.jpg" data-lightbox="roadtrip" data-title=">Поп-арт портрет в стиле Монро">
-              <div class="name">Поп-арт портрет в стиле Монро
-              </div>
-              <div class="background-image-holder" style="background: url(&quot;https://muse.ooo/upload/medialibrary/3fb/dvoynoy_portret_devushki_min.jpg&quot;); opacity: 1;"> 
-                <img alt="image" src="https://muse.ooo/upload/medialibrary/3fb/dvoynoy_portret_devushki_min.jpg"> 
-              </div>
-            </a>
-          </div>
-        </div>
-         
+    </a>
+  </div>
+  
+  
+  
+  <div class="element-item wpap mycard overlay hoveff" data-category="wpap" style="position: absolute; left: 292px; top: 0px;">
+    <a href="https://muse.ooo/upload/medialibrary/45b/wpap_dark_min.jpg" data-lightbox="roadtrip" data-title="Портрет в стиле WPAP">
+      <div class="name">Портрет в стиле WPAP</div>
+          <div class="background-image-holder lazyload" data-src="https://muse.ooo/upload/medialibrary/45b/wpap_dark_min.jpg" style="background-image: url(https://muse.ooo/upload/medialibrary/45b/wpap_dark_min.jpg);opacity: 1;">
+          </div>	
+   </a>
+  </div>
+ 
+  
+  
+  <div class="element-item monroe mycard overlay hoveff" data-category="monroe" style="position: absolute; left: 584px; top: 0px;">
+    <a href="https://muse.ooo/upload/medialibrary/f12/devushka_v_stile_monro_min.jpg" data-lightbox="roadtrip" data-title="Поп-арт портрет в стиле Монро">
+        <div class="name">Поп-арт портрет в стиле Монро</div>
+          <div class="background-image-holder lazyload" data-src="https://muse.ooo/upload/medialibrary/f12/devushka_v_stile_monro_min.jpg" style="background-image: url(https://muse.ooo/upload/medialibrary/f12/devushka_v_stile_monro_min.jpg);opacity: 1;">
+          </div>	
+   </a>
+  </div>
+  
+  
+  
+  <div class="element-item che mycard overlay hoveff" data-category="che" style="position: absolute; left: 876px; top: 0px;">
+    <a href="https://muse.ooo/upload/medialibrary/c4f/pop_art-v-stile-che.jpg" data-lightbox="roadtrip" data-title="Поп-арт портрет в стиле Че">
+        <div class="name">Поп-арт портрет в стиле Че</div>
+          <div class="background-image-holder lazyload" data-src="https://muse.ooo/upload/medialibrary/c4f/pop_art-v-stile-che.jpg" style="background-image: url(https://muse.ooo/upload/medialibrary/c4f/pop_art-v-stile-che.jpg);opacity: 1;">
+          </div>	
+   </a>
+  </div>
+  
+ 
+ 
+  <div class="element-item height2 monroe mycard overlay hoveff" data-category="monroe" style="position: absolute; left: 292px; top: 310px;">
+    <a href="https://muse.ooo/upload/medialibrary/638/xpop_art_portret_devushki_min.jpg.pagespeed.ic.1PVZ5mJkZw.webp" data-lightbox="roadtrip" data-title="Поп-арт портрет в стиле Че">
+        <div class="name">Поп-арт портрет в стиле Че</div>
+          <div class="background-image-holder lazyload" data-src="https://muse.ooo/upload/medialibrary/638/xpop_art_portret_devushki_min.jpg.pagespeed.ic.1PVZ5mJkZw.webp" style="background-image: url(https://muse.ooo/upload/medialibrary/638/xpop_art_portret_devushki_min.jpg.pagespeed.ic.1PVZ5mJkZw.webp);opacity: 1;">
+          </div>	
+   </a>
+  </div>
+  
+  
+  
+  <div class="element-item monroe mycard overlay hoveff" data-category="monroe" style="position: absolute; left: 584px; top: 310px;">
+    <a href="https://muse.ooo/upload/medialibrary/2a6/xdevushka_chetyre_v_kvadrate_che_min.jpg.pagespeed.ic.FXQJHpynjv.webp" data-lightbox="roadtrip" data-title="Поп-арт портрет в стиле Монро">
+        <div class="name">Поп-арт портрет в стиле Монро</div>
+          <div class="background-image-holder lazyload" data-src="https://muse.ooo/upload/medialibrary/2a6/xdevushka_chetyre_v_kvadrate_che_min.jpg.pagespeed.ic.FXQJHpynjv.webp" style="background-image: url(https://muse.ooo/upload/medialibrary/2a6/xdevushka_chetyre_v_kvadrate_che_min.jpg.pagespeed.ic.FXQJHpynjv.webp);opacity: 1;">
+          </div>	
+   </a>
+  </div>
+  
+  
+  
+  <div class="element-item monroe mycard overlay hoveff" data-category="monroe" style="position: absolute; left: 876px; top: 310px;">
+    <a href="https://muse.ooo/upload/medialibrary/28f/popart_uorkhol.jpg" data-lightbox="roadtrip" data-title="Поп-арт портрет в стиле Монро">
+        <div class="name">Поп-арт портрет в стиле Монро</div>
+          <div class="background-image-holder lazyload" data-src="https://muse.ooo/upload/medialibrary/28f/popart_uorkhol.jpg" style="background-image: url(https://muse.ooo/upload/medialibrary/28f/popart_uorkhol.jpg);opacity: 1;">
+          </div>	
+   </a>
+  </div>
+  
+  
+  
+  <div class="element-item monroe mycard overlay hoveff" data-category="monroe" style="position: absolute; left: 0px; top: 390px;">
+    <a href="https://muse.ooo/upload/medialibrary/cca/4_pop_art.jpg" data-lightbox="roadtrip" data-title="Поп-арт портрет в стиле Монро">
+        <div class="name">Поп-арт портрет в стиле Монро</div>
+          <div class="background-image-holder lazyload" data-src="https://muse.ooo/upload/medialibrary/cca/4_pop_art.jpg" style="background-image: url(https://muse.ooo/upload/medialibrary/cca/4_pop_art.jpg);opacity: 1;">
+          </div>	
+   </a>
+  </div>
+  
+  
+  
+  <div class="element-item height1 monroe mycard overlay hoveff" data-category="monroe" style="position: absolute; left: 584px; top: 620px;">
+    <a href="https://muse.ooo/upload/medialibrary/3fb/dvoynoy_portret_devushki_min.jpg" data-lightbox="roadtrip" data-title="Поп-арт портрет в стиле Монро">
+        <div class="name">Поп-арт портрет в стиле Монро</div>
+          <div class="background-image-holder lazyload" data-src="https://muse.ooo/upload/medialibrary/3fb/dvoynoy_portret_devushki_min.jpg" style="background-image: url(https://muse.ooo/upload/medialibrary/3fb/dvoynoy_portret_devushki_min.jpg);opacity: 1;">
+          </div>	
+   </a>
+  </div>
+</div>
+    
          
         <script src="js/isotope.pkgd.js"></script>
         <script src="js/lightbox.js"></script>
         <script src="js/lazysizes.min.js"></script>
-        <script src="js/fff.js"></script>
+        <script src="js/ff.js"></script>
         <script src="js/packery.js"></script>
         </body>
       </html>
