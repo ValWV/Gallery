@@ -10,48 +10,34 @@
     </script>
     <style>
       .mycard {
-        background-color: #efefef;
-        padding: 0px;
-        margin-top: 50px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        height: 250px;
-        overflow: hidden;
-        border: none;
-        border-radius: 5px;
-        z-index:2;
-        -webkit-mask-image: url(https://images.unsplash.com/photo-1461727885569-b2ddec0c4328?dpr=1&auto=format&fit=crop&w=1500&h=1002&q=80&cs=tinysrgb&crop=);
-      }
-      .red {
-        background-color: red;
-      }
-      .overlay:before{
-        position: absolute;
-        margin: 0 0 0 -25px;
-        top: 0;
-        left: 50%;
-        content:" ";
-        width: 50px;
-        height: 50px;
-        opacity: 0;
-        transition: all 1000ms ease;
-        background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Plus_font_awesome.svg/2000px-Plus_font_awesome.svg.png') 50% / 50px no-repeat;
-      }
-      .overlay:hover:before{
-        top: 50%;
-        opacity: 1;
-      }
-      .overlay:hover img {
-        opacity: 0.5;
-        transition: opacity 1000ms ease;
-        -webkit-backface-visibility: hidden;
-      }
-      img {
-        width: auto;
-        max-height: 100%;
-        min-width: 100%;
-        background: transparent;
-        overflow: hidden;
-      }
+   -webkit-mask-image: url(https://images.unsplash.com/photo-1461727885569-b2ddec0c4328?dpr=1&auto=format&fit=crop&w=1500&h=1002&q=80&cs=tinysrgb&crop=);
+  background-color: rgba(232, 232, 232, 0.79);
+    
+}
+
+.overlay:before{
+  position: absolute;
+  margin: 0 0 0 -25px;
+  top: 0;
+  left: 50%;
+  content:" ";
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  transition: all 1000ms ease;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Antu_edit-find-mail.svg/768px-Antu_edit-find-mail.svg.png')50% / 70px no-repeat;
+}
+
+.overlay:hover:before{
+  top: 50%;
+  opacity: 1;
+}
+
+.overlay:hover img {
+  opacity: 0.5;
+  transition: opacity 1000ms ease;
+  -webkit-backface-visibility: hidden;
+}
     </style>
   </head>
   <body>
